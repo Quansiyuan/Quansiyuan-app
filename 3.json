@@ -1,0 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const orderList = document.getElementById('order-list');
+
+    document.querySelectorAll('.dish button').forEach(button => {
+        button.addEventListener('click', function() {
+            const dish = this.parentElement;
+            const dishName = dish.getAttribute('data-name');
+            const dishPrice = dish.getAttribute('data-price');
+
+            const orderItem = document.createElement('li');
+            orderItem.textContent = `${dishName} - ￥${dishPrice}`;
+            orderList.appendChild(orderItem);
+
+            alert(`您已点餐: ${dishName}`);
+        });
+    });
+});
